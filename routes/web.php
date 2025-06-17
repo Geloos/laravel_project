@@ -28,5 +28,8 @@ Route::controller(AuthController::class)->group(function () {
 
     Route::post('/singin-user', 'singin_user')
         ->name('authentication.singin-user');
+    
+    Route::post('/setgoal', 'setgoal')
+        ->name('authentication.setgoal');
 
 });

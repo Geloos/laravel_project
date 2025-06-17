@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 
 use App\Models\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Session;
 
@@ -50,19 +51,19 @@ class AuthController extends Controller
 
     public function singup_user(Request $request){
     
-    $validated = $request->validate([
-        'name' => 'required|string|max:255',
-        'email' => 'required|email|unique:users',
-        'password' => 'required|min:8|confirmed',
-    ]);
+        $validated = $request->validate([
+            'name' => 'required|string|max:255',
+            'email' => 'required|email|unique:users',
+            'password' => 'required|min:8|confirmed',
+        ]);
 
-    User::create([
-        'name' => $validated['name'],
-        'email' => $validated['email'],
-        'password' => Hash::make($validated['password']),
-    ]);
+        User::create([
+            'name' => $validated['name'],
+            'email' => $validated['email'],
+            'password' => Hash::make($validated['password']),
+        ]);
 
-        return redirect(route('authentication.singin'));
+            return redirect(route('authentication.singin'));
 
     }
 
@@ -73,6 +74,18 @@ class AuthController extends Controller
         Session::regenerate();
         return redirect(route('authentication.singin'));
 
+    }
+
+    public function setgoal(Request $request)
+    {
+        $request->validate([
+            'goal' => 'required|numeric|min:0'
+        ]);
+        
+        $userId = $request->session()->get('loginId');
+        User::where('id', $userId)->update(['goal' => $request->goal]);
+
+        return redirect(route('home'));
     }
 
 }

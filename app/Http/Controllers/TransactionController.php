@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Carbon;
 use App\Services\TransactionService;
@@ -28,12 +29,13 @@ readonly class TransactionController
         
         $income = $this->transactionService->getTotalIncome($this->user_id);
         $expense = $this->transactionService->getTotalExpense($this->user_id);
+        $goal = User::where('id', $this->user_id)->value('goal');
 
         return view('transactions', [
             'totalIncome' => $income,
             'totalExpense' => $expense,
             'netSavings' => $income - $expense,
-            'goal' => 10000,
+            'goal' => $goal,
             'transactions' => $transactions
         ]);
     }

@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Middleware\CheckUserRole;
 use Illuminate\Foundation\Application;
 use App\Http\Middleware\AssignRequestId;
+use App\Http\Middleware\CheckUserSession;
 use App\Http\Middleware\HandleAppearance;
 use App\Http\Middleware\HandleInertiaRequests;
 use Illuminate\Foundation\Configuration\Exceptions;
@@ -23,7 +24,6 @@ return Application::configure(basePath: dirname(__DIR__))
         
     )
     ->withMiddleware(function (Middleware $middleware) {
-
         
         $middleware->encryptCookies(except: ['appearance', 'sidebar_state']);
 
@@ -34,5 +34,5 @@ return Application::configure(basePath: dirname(__DIR__))
         ]);
     })
     ->withExceptions(function (Exceptions $exceptions) {
-        //
+        
     })->create();

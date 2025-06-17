@@ -2,9 +2,9 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\TransactionController;
+use App\Http\Middleware\CheckUserSession;
 
-
-Route::middleware('web')->group(function () {
+Route::middleware('web',CheckUserSession::class)->group(function () {
     Route::controller(TransactionController::class)->group(function () {
 
         Route::get('/', 'index')
@@ -19,7 +19,7 @@ Route::middleware('web')->group(function () {
 
         Route::put('/{transactionId}/update', 'update')
             ->name('update');
-        
+            
         Route::delete('/{transactionId}', 'destroy')
             ->name('destroy');
 
@@ -29,5 +29,5 @@ Route::middleware('web')->group(function () {
         Route::post('/', 'store')
             ->name('store');
 
-    });
+        });
 });
