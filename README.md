@@ -6,7 +6,7 @@ git clone https://github.com/yourusername/laravel_transactions.git
 
 cd laravel_transactions
 
-composer install (may take sometime just chill)
+composer install (may take sometime)
 
 bash: cp .env.example .env
 powershell: copy .env.example .env
