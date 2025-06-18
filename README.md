@@ -1,6 +1,7 @@
 This is a project i made to learn the basics of laravel.
-first move to the projects directory propably laravel_transactions.
-then run the followin commands on powershell or bash
+
+First move to the projects directory propably laravel_transactions.
+then run the following commands on powershell or bash
 
 composer install
 
