@@ -1,11 +1,15 @@
 This is a project i made to learn the basics of laravel.
 
-First move to the projects directory propably laravel_transactions.
-Then run the following commands on powershell or bash
+To successfully run this project in your pc you need to run the following commands
+
+git clone https://github.com/yourusername/your-laravel-project.git
+
+cd your-laravel-project
 
 composer install
 
-for bash cp .env.example .env for powershell copy .env.example .env
+bash: cp .env.example .env
+powershell: copy .env.example .env
 
 php artisan key:generate
 
