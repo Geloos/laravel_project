@@ -2,9 +2,9 @@ This is a project i made to learn the basics of laravel.
 
 To successfully run this project in your pc you need to run the following commands
 
-git clone https://github.com/yourusername/your-laravel-project.git
+git clone https://github.com/yourusername/laravel_transactions.git
 
-cd your-laravel-project
+cd laravel_transactions
 
 composer install
 
