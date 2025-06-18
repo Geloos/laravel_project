@@ -1,6 +1,13 @@
 This is a project i made to learn the basics of laravel.
 
-To successfully run this project in your pc you need to run the following commands
+Before you start,make sure you have the following installed:
+
+- PHP 8.1 or higher
+- [Composer](https://getcomposer.org/)
+- Git (to clone the repo)
+- SQLite (included by default with PHP)
+
+Follow this commands and you are ready
 
 git clone https://github.com/yourusername/laravel_transactions.git
 
